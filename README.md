@@ -75,7 +75,7 @@ title: "Notebook fragments"
 Set the final domain with `SITE_URL` before building:
 
 ```sh
-SITE_URL=https://your-domain.com npm run build
+SITE_URL=https://lochana.au npm run build
 ```
 
 Local builds can run without `SITE_URL`; they fall back to `http://localhost:4321`. CI/deployment builds fail when `SITE_URL` is missing or set to localhost.
@@ -88,4 +88,25 @@ SITE_GITHUB=https://github.com/your-profile
 SITE_LINKEDIN=https://www.linkedin.com/in/your-profile
 ```
 
-If you use a custom domain, create `public/CNAME` containing only that domain.
+The GitHub Pages custom domain is configured in `public/CNAME`:
+
+```txt
+lochana.au
+```
+
+The deployment workflow lives in `.github/workflows/deploy.yml`. In the repository settings, set Pages source to **GitHub Actions**.
+
+For the apex domain, configure these DNS records at your domain provider:
+
+```txt
+A     @     185.199.108.153
+A     @     185.199.109.153
+A     @     185.199.110.153
+A     @     185.199.111.153
+AAAA  @     2606:50c0:8000::153
+AAAA  @     2606:50c0:8001::153
+AAAA  @     2606:50c0:8002::153
+AAAA  @     2606:50c0:8003::153
+```
+
+After DNS resolves, enable **Enforce HTTPS** in the repository's Pages settings. DNS changes can take up to 24 hours.
