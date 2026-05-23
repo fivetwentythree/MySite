@@ -1,0 +1,62 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import "../styles/article.css";
+import { site } from "../site.config";
+
+const { title, description, date, source, tags = [] } = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat("en", {
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+}).format(date);
+
+const publicationLine = `Published on ${source} on ${formattedDate}`.toUpperCase();
+const siteUrl = site.url.replace(/\/$/, "");
+const canonicalUrl = new URL(Astro.url.pathname, `${siteUrl}/`).toString();
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  description,
+  datePublished: date.toISOString(),
+  dateModified: date.toISOString(),
+  author: {
+    "@type": "Person",
+    name: site.fullName,
+    url: `${siteUrl}/`
+  },
+  publisher: {
+    "@type": "Person",
+    name: site.fullName,
+    url: `${siteUrl}/`
+  },
+  mainEntityOfPage: canonicalUrl,
+  keywords: tags.join(", "),
+  inLanguage: "en"
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  type="article"
+  publishedTime={date.toISOString()}
+  modifiedTime={date.toISOString()}
+  schema={articleSchema}
+>
+  <div class="article-page">
+    <article class="article-shell">
+      <header class="article-header">
+        <h1>{title}</h1>
+        <p class="article-publication">
+          <time datetime={date.toISOString()}>{publicationLine}</time>
+        </p>
+      </header>
+
+      <div class="article-body">
+        <slot />
+      </div>
+    </article>
+  </div>
+</BaseLayout>

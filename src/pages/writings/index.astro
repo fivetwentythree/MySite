@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/listing.css";
+
+const writings = (await getCollection("writings"))
+  .filter((entry) => !entry.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout
+  title="Recent Writings"
+  description="Essays, notes, and field reports."
+  currentPath="/writings/"
+>
+  <div class="page listing-page">
+    <header class="listing-header">
+      <h1>Recent Writings</h1>
+    </header>
+
+    <section class="writing-list" id="essays" aria-label="Writing list">
+      {
+        writings.map((entry) => (
+          <a class="writing-row" href={`/writings/${entry.id}/`}>
+            <span class="writing-source">{entry.data.source}</span>
+            <h2>{entry.data.title}</h2>
+          </a>
+        ))
+      }
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+import { getEntry, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/simple.css";
+
+const about = await getEntry("pages", "about");
+if (!about) throw new Error("Missing src/content/pages/about.md");
+const { Content } = await render(about);
+---
+
+<BaseLayout title={about.data.title} description={about.data.description}>
+  <div class="page simple-page">
+    {about.data.eyebrow && <p class="section-label">{about.data.eyebrow}</p>}
+    <h1>{about.data.heading}</h1>
+    {about.data.intro && <p class="intro">{about.data.intro}</p>}
+    <div class="simple-page-content">
+      <Content />
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/thoughts.css";
+
+const thoughts = (await getCollection("thoughts"))
+  .filter((entry) => !entry.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout
+  title="Random Thoughts"
+  description="Loose threads, fragments, notes, and subthreads."
+  currentPath="/thoughts/"
+>
+  <div class="thought-index">
+    <header class="thought-index-header">
+      <h1>Random Thoughts</h1>
+    </header>
+
+    <section class="thought-index-list" aria-label="Random thoughts">
+      {
+        thoughts.map((entry) => (
+          <a class="thought-index-row" href={`/thoughts/${entry.id}/`}>
+            <h2>{entry.data.title}</h2>
+          </a>
+        ))
+      }
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,37 @@
+.simple-page {
+  padding: 118px 0 70px;
+}
+
+.simple-page h1 {
+  margin: 0;
+  font-size: 40.192px;
+  line-height: 45.5295px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.simple-page .intro {
+  max-width: 640px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.simple-page-content {
+  max-width: 640px;
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+@media (max-width: 640px) {
+  .simple-page {
+    padding-top: 104px;
+  }
+
+  .simple-page h1 {
+    font-size: 38px;
+  }
+}

@@ -1,0 +1,31 @@
+---
+import { getEntry, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/home.css";
+
+const home = await getEntry("pages", "home");
+if (!home) throw new Error("Missing src/content/pages/home.md");
+const { Content } = await render(home);
+---
+
+<BaseLayout title={home.data.title} description={home.data.description}>
+  <div class="page">
+    <section class="home-profile" aria-labelledby="home-title">
+      <h1 id="home-title">
+        {home.data.hero}
+      </h1>
+
+      <div class="profile-grid">
+        <figure class="profile-image" aria-label="Portrait placeholder">
+          <div class="profile-image-placeholder">
+            <span aria-hidden="true">L</span>
+          </div>
+        </figure>
+
+        <div class="profile-copy">
+          <Content />
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
