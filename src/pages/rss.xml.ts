@@ -30,7 +30,10 @@ export async function GET() {
       date: entry.data.date,
       url: `${siteUrl}/thoughts/${entry.id}/`
     }))
-  ].sort((a, b) => b.date.getTime() - a.date.getTime());
+  ].sort((a, b) => {
+    const dateDifference = (b.date?.getTime() || 0) - (a.date?.getTime() || 0);
+    return dateDifference || a.title.localeCompare(b.title);
+  });
 
   const items = entries.map((entry) => {
     return [
@@ -39,9 +42,9 @@ export async function GET() {
       `      <description>${escapeXml(entry.description)}</description>`,
       `      <link>${escapeXml(entry.url)}</link>`,
       `      <guid>${escapeXml(entry.url)}</guid>`,
-      `      <pubDate>${entry.date.toUTCString()}</pubDate>`,
+      entry.date ? `      <pubDate>${entry.date.toUTCString()}</pubDate>` : "",
       "    </item>"
-    ].join("\n");
+    ].filter(Boolean).join("\n");
   });
 
   const xml = [

@@ -1,13 +1,13 @@
 ---
 title: "Anatomy of a bubble"
-description: "A short sample essay that demonstrates margin notes and code blocks in plain Markdown."
+description: "An essay on speculative bubbles, AI infrastructure, financial markets, and the long delay between technological investment and productive use."
 date: 2021-05-23
 source: "Field Note"
 ---
 
 **The rise of generative AI has triggered a global race to build semiconductor plants and data centers to feed the vast energy demands of large language models. But as investment surges and valuations soar, a growing body of evidence suggests that financial speculation is outpacing productivity gains.**
 
-CAMBRIDGE – In recent weeks, the notion that we are witnessing an “AI Bubble” has moved from the fringes of public debate to the mainstream. As Financial Times commentator Katie Martin aptly put it, “Bubble-talk is breaking out everywhere.” {{note:this is a sample note.}}
+CAMBRIDGE – In recent weeks, the notion that we are witnessing an “AI Bubble” has moved from the fringes of public debate to the mainstream. As Financial Times commentator Katie Martin aptly put it, “Bubble-talk is breaking out everywhere.” {{note:Speculative bubbles are easier to identify in retrospect than in real time.}}
 
 The debate is fueled by a surge of investment in data centers and in the vast energy infrastructure required to train and operate the large language models (LLMs) that drive generative AI. As with previous speculative bubbles, rising investment volumes fuel soaring valuations, with both reaching historic highs across public and private markets. The so-called “Magnificent Seven” tech giants – Alphabet, Amazon, Apple, Meta, Microsoft, Nvidia, and Tesla – dominate the S&P 500, with each boasting a market capitalization above $1 trillion, and Nvidia is now the world’s first $5 trillion company.{{marginnote: this is how to add a margin note}}
 In the private market, OpenAI reportedly plans to raise $30 billion at a $500 billion valuation from SoftBank, the most exuberant investor of the post-2008 era. Notably, this fundraising round comes even as the company’s losses totaled $5 billion in 2024 despite $3.7 billion in revenue with its cash burn expected to total $115 billion through 2029.
@@ -16,7 +16,7 @@ Much like previous speculative cycles, this one is marked by the emergence of cr
 
 While the contours of an AI bubble are hard to miss, its actual impact will depend on whether it spills over from financial markets into the broader economy. How – and whether – that shift will occur remains unclear. Virtually every day brings announcements of new multibillion-dollar AI infrastructure projects. At the same time, a growing body of reports indicates that AI’s business applications are delivering disappointing returns, indicating that the hype may be running well ahead of reality.
 
-# THE GHOSTS OF BUBBLES PAST
+## THE GHOSTS OF BUBBLES PAST
 
 Financial bubbles can be understood in terms of their focus and locus. The first concerns what investors are betting on: Do the assets that attract speculation have the potential to boost economic productivity when deployed at scale? Second, is this activity concentrated primarily in equity or credit markets? It is debt-financed speculation that leads to economic disaster when a bubble inevitably bursts. As Moritz Schularick and Alan M. Taylor have shown, leverage-fueled bubbles have repeatedly triggered financial crises over the past century and a half.{{marginnote: ![](/images/Genesha.jpg)Ganesha}}
 

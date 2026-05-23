@@ -9,7 +9,6 @@ export function GET() {
       "Allow: /",
       "",
       `Sitemap: ${siteUrl}/sitemap-index.xml`,
-      `Sitemap: ${siteUrl}/rss.xml`,
       ""
     ].join("\n"),
     {

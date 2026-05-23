@@ -78,6 +78,8 @@ Set the final domain with `SITE_URL` before building:
 SITE_URL=https://your-domain.com npm run build
 ```
 
+Local builds can run without `SITE_URL`; they fall back to `http://localhost:4321`. CI/deployment builds fail when `SITE_URL` is missing or set to localhost.
+
 Optional public contact/profile values can be set the same way:
 
 ```sh

@@ -18,7 +18,7 @@ const thoughts = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().default("A loose thread of notes and replies."),
-    date: z.coerce.date().default(new Date()),
+    date: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false)
   })

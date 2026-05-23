@@ -5,7 +5,10 @@ import "../../styles/thoughts.css";
 
 const thoughts = (await getCollection("thoughts"))
   .filter((entry) => !entry.data.draft)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .sort((a, b) => {
+    const dateDifference = (b.data.date?.getTime() || 0) - (a.data.date?.getTime() || 0);
+    return dateDifference || a.data.title.localeCompare(b.data.title);
+  });
 ---
 
 <BaseLayout

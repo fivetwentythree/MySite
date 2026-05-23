@@ -4,7 +4,6 @@ const githubUrl = import.meta.env.SITE_GITHUB || "";
 const linkedinUrl = import.meta.env.SITE_LINKEDIN || "";
 
 const aboutChildren = [
-  { label: "Biography", href: "/about/" },
   ...(siteEmail ? [{ label: "Contact", href: `mailto:${siteEmail}` }] : [])
 ];
 
@@ -13,7 +12,7 @@ export const site = {
   locale: "en_US",
   name: "Lochana L. Perera",
   fullName: "Lochana L. Perera",
-  tagline: "Notes on software, systems, language, and the work of building useful things.",
+  tagline: "Notes on analytical work, systems, technology, institutions, and the work of building useful things.",
   email: siteEmail,
   keywords: [
     "Lochana L. Perera",
@@ -45,7 +44,7 @@ export const site = {
     {
       label: "About",
       href: "/about/",
-      children: aboutChildren
+      ...(aboutChildren.length ? { children: aboutChildren } : {})
     }
   ]
 };

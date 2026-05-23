@@ -7,7 +7,10 @@ export async function GET() {
   const writings = (await getCollection("writings", ({ data }) => !data.draft))
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
   const thoughts = (await getCollection("thoughts", ({ data }) => !data.draft))
-    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+    .sort((a, b) => {
+      const dateDifference = (b.data.date?.getTime() || 0) - (a.data.date?.getTime() || 0);
+      return dateDifference || a.data.title.localeCompare(b.data.title);
+    });
 
   const lines = [
     `# ${site.fullName}`,

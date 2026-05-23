@@ -6,14 +6,14 @@ source: "Miscellaneous Writing"
 tags: ["miscellaneous"]
 ---
 
-# The Deal
+## The Deal
 So around 397 AD, this guy Augustine who is basically running the Catholic Church's North Africa division from his office in Hippo[^1]—decides to write a book about all the terrible things he did before he became a bishop. This is weird! Imagine if Jamie Dimon wrote a 13-volume memoir that started with "Let me tell you about the time I stole some pears when I was sixteen, and boy, do I have _thoughts_ about it."
 
 But here's the thing, Augustine basically invented the autobiography. Before him, if you wrote about yourself, you were either Julius Caesar explaining why conquering Gaul was actually good for everyone, or you were dead and someone else was writing nice things about you. Nobody sat down and wrote 130,000 words about their internal emotional state and their complicated relationship with their mother.
 
 
 
-# The Context (or Why This Guy Won't Stop Talking About Pears)
+## The Context (or Why This Guy Won't Stop Talking About Pears)
 
 Look, you have to understand what's happening in 397. The Roman Empire is having what we might call "structural issues." The Visigoths are doing hostile takeovers of various provinces. The whole administrative apparatus that ran everything from Britain to Syria is basically held together with duct tape and prayer. Christianity, which started as a scrappy startup, has recently gone through a massive IPO. Constantine made it the official imperial religion about 80 years earlier and now it needs to figure out its corporate governance.
 
@@ -21,7 +21,7 @@ Augustine is writing for an audience that's extremely online, except "online" me
 
 The man has a problem. He's trying to be the bishop of Hippo, which means he's supposed to be morally authoritative, but everyone knows he spent his twenties living with a woman he wasn't married to and his thirties as a professional rhetoric teacher, which was basically the ancient equivalent of being a corporate communications consultant. Not exactly saint material! So he does something genius, he writes a book where he admits to everything, but frames it as a demonstration of God's grace. "Look how terrible I was," he says, "and yet here I am, explaining Christianity to you. Must be divine intervention!"
 
-# The Structure
+## The Structure
 
 The book has thirteen sections, which Augustine calls "books," because ancient people didn't understand brevity. Books 1-9 are autobiography, Book 10 is about memory and how it works (spoiler: Augustine doesn't know but has theories), and Books 11-13 are Biblical commentary on Genesis because Augustine apparently thought, "You know what this memoir needs? A lengthy digression about the nature of time."
 
@@ -38,7 +38,7 @@ The autobiographical part is actually riveting in a reality-TV way. Augustine te
 
 But here's what makes it work. Augustine doesn't just tell you what happened. He tells you what he was thinking while it happened, what he thinks about it now, what he thinks about what he was thinking, and what God probably thinks about all of this thinking. It's like reading someone's therapy notes, except the therapist is God and the patient won't stop making philosophical arguments.
 
-# The Innovation
+## The Innovation
 
 Before Augustine, autobiography wasn't really a thing, and interiority _definitely_ wasn't a thing. Homer doesn't tell you what Achilles is feeling he just has Achilles do stuff and you figure it out. Marcus Aurelius wrote notes to himself, but they were more like "remember to be stoic" than "let me unpack my complicated feelings about that time I cried at the theater."
 
@@ -51,7 +51,7 @@ Augustine invents the idea that your internal life is:
 
 This is huge! This is basically the operating system for all of Western literature. Without Augustine, you don't get Rousseau, you don't get Proust, you definitely don't get autofiction, and you probably don't get Twitter.
 
-# The Pear Thing (A Case Study in Moral Accounting)
+## The Pear Thing (A Case Study in Moral Accounting)
 
 I need to talk about the pears because Augustine spends SO MUCH TIME on the pears. Here's what happened: sixteen-year-old Augustine and his friends stole some pears from a neighbor's tree. They didn't eat them. They threw them to the pigs. That's it. That's the whole story.
 
@@ -63,7 +63,7 @@ Augustine spends pages analyzing this. Why did he do it? Not because he was hung
 
 This is Augustine's whole theological innovation in a nutshell is sin isn't just breaking rules or hurting people. Sin is _wanting to break rules because they're rules_. It's the psychological equivalent of shorting a stock not because you think it's overvalued but because you enjoy watching things burn. He's basically describing teenage nihilism and then extrapolating an entire theory of human nature from it.
 
-# The Mom Situation
+## The Mom Situation
 
 Monica, Augustine's mother, is arguably the book's most compelling character. She's like a helicopter parent with theological convictions. She:
 
@@ -75,7 +75,7 @@ Monica, Augustine's mother, is arguably the book's most compelling character. Sh
 
 The relationship is... intense. Augustine describes their final conversation, where they stand at a window in Ostia discussing the nature of eternal life, as basically the peak experience of his existence. Freud would have had a field day, but Freud wouldn't exist without Augustine inventing the idea that your relationship with your parents determines your entire personality.
 
-# The Philosophy Parts (Due Diligence on Reality)
+## The Philosophy Parts (Due Diligence on Reality)
 
 The last three books are where Augustine goes full philosopher. He's trying to answer questions like:
 
@@ -86,7 +86,7 @@ The last three books are where Augustine goes full philosopher. He's trying to a
 
 The time stuff is actually brilliant. Augustine basically invents the idea that time is psychological, it only exists because we have memory and expectation. The present doesn't really exist (it's infinitely small), the past doesn't exist (it's gone), and the future doesn't exist (hasn't happened yet). So time is just our consciousness creating continuity out of nothing. This is both obviously wrong and deeply influential on literally all of subsequent Western philosophy.
 
-# The Business Model
+## The Business Model
 
 Here's what's genius about the _Confessions_: it works on multiple levels. It's:
 
@@ -98,7 +98,7 @@ Here's what's genius about the _Confessions_: it works on multiple levels. It's:
 
 It's like if someone wrote a memoir that was simultaneously a TED talk, a legal brief, a love letter, and a technical manual. The market for any one of these might be limited, but everyone finds something.
 
-# The Legacy (Return on Investment)
+## The Legacy (Return on Investment)
 
 The _Confessions_ basically invents:
 
@@ -117,7 +117,7 @@ Without it, you don't get:
 - Most of modern philosophy's obsession with consciousness
 - Basically any book where someone talks about their feelings
 
-# The Lessons for Today
+## The Lessons for Today
 
 So what does a 1,600-year-old book by a North African bishop tell us about modern life? More than you'd think!
 
@@ -129,7 +129,7 @@ So what does a 1,600-year-old book by a North African bishop tell us about moder
 
 **Fourth**, the book is essentially about optimization, how to optimize your soul for salvation. Augustine treats his past self like a badly-run company that needs restructuring. Each sin is analyzed for its root causes, each conversion attempt is assessed for why it failed.
 
-# The Bottom Line
+## The Bottom Line
 
 Look, the _Confessions_ is weird. It's too long, the pear thing goes on forever, the philosophy parts are dense, and Augustine's relationship with his mother needs its own trigger warning. But it's also the foundational text for how we think about ourselves as individuals with inner lives that matter.
 

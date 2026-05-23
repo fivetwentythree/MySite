@@ -5,8 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
-    "prebuild": "npm run optimize:images",
+    "prebuild": "npm run validate:site && npm run optimize:images",
     "build": "astro build",
+    "validate:site": "node scripts/validate-site-url.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
     "preview": "astro preview --host 0.0.0.0"
   },
