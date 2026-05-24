@@ -11,7 +11,7 @@ npm run optimize:images
 npm run build
 ```
 
-`npm run build` automatically optimizes images in `public/images` before generating the site.
+`npm run build` automatically converts images in `public/images` to WebP, removes the original `.jpg`, `.jpeg`, and `.png` files, and rewrites matching source references before generating the site.
 
 ## Writing
 
@@ -33,7 +33,7 @@ An unnumbered note looks like this {{marginnote: Useful for side comments that s
 Image notes use files from `public/images`:
 
 ```md
-{{note: ![Short image description](/images/example.jpg) Visible caption below the image.}}
+{{note: ![Short image description](/images/example.webp) Visible caption below the image.}}
 ```
 
 Miscellaneous writing lives in `src/content/writings/miscellaneous` and appears at `/writings/miscellaneous/`. Use the same frontmatter structure:

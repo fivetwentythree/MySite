@@ -2,7 +2,7 @@
 title: "My Prompt "
 ---
 
-I should say this was inspired by Casey Handmer's [promt](https://docs.google.com/document/d/1y65SFzIBxLNdwesEQRjk6LnTA0lKxX2C8FGUMLFVuCw/edit?usp=sharing) which is rather longer and more detailed. Thanks Casey.{{marginnote: ![Casey Handmer](/public/images/casey.png)Casey Handmer}}
+I should say this was inspired by Casey Handmer's [promt](https://docs.google.com/document/d/1y65SFzIBxLNdwesEQRjk6LnTA0lKxX2C8FGUMLFVuCw/edit?usp=sharing) which is rather longer and more detailed. Thanks Casey.{{marginnote: ![Casey Handmer](/images/casey.webp)Casey Handmer}}
 
 - I think latest Google gemini pro _I had so many good expereinces with it_, is more spatially aware so you might want try that out. But for now text is what we have so text is what we can tame. 
 

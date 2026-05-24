@@ -7,7 +7,7 @@ tags: ["miscellaneous"]
 ---
 
 ## The Deal
-So around 397 AD, this guy Augustine who is basically running the Catholic Church's North Africa division from his office in Hippo[^1]—decides to write a book about all the terrible things he did before he became a bishop. This is weird! Imagine if Jamie Dimon wrote a 13-volume memoir that started with "Let me tell you about the time I stole some pears when I was sixteen, and boy, do I have _thoughts_ about it."
+So around 397 AD, this guy Augustine who is basically running the Catholic Church's North Africa division from his office in Hippo decides to write a book about all the terrible things he did before he became a bishop. This is weird! Imagine if Jamie Dimon wrote a 13-volume memoir that started with "Let me tell you about the time I stole some pears when I was sixteen, and boy, do I have _thoughts_ about it."{{marginnote: ![Augustine](/images/augustine.webp)Augustine of Hippo}}
 
 But here's the thing, Augustine basically invented the autobiography. Before him, if you wrote about yourself, you were either Julius Caesar explaining why conquering Gaul was actually good for everyone, or you were dead and someone else was writing nice things about you. Nobody sat down and wrote 130,000 words about their internal emotional state and their complicated relationship with their mother.
 
