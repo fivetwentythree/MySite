@@ -1,7 +1,7 @@
 const siteUrl = import.meta.env.SITE_URL || "http://localhost:4321";
 const siteEmail = import.meta.env.SITE_EMAIL || "";
-const githubUrl = import.meta.env.SITE_GITHUB || "";
-const linkedinUrl = import.meta.env.SITE_LINKEDIN || "";
+const githubUrl = import.meta.env.SITE_GITHUB || "https://github.com/fivetwentythree";
+const linkedinUrl = import.meta.env.SITE_LINKEDIN || "https://www.linkedin.com/in/lochanalperera/";
 
 const aboutChildren = [
   ...(siteEmail ? [{ label: "Contact", href: `mailto:${siteEmail}` }] : [])

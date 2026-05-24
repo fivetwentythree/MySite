@@ -209,6 +209,8 @@ const structuredData = schema || defaultSchema;
           <nav class="footer-links" aria-label="Footer navigation">
             <a href="/writings/">Writings</a>
             <a href="/thoughts/">Thoughts</a>
+            {site.social.github && <a href={site.social.github}>GitHub</a>}
+            {site.social.linkedin && <a href={site.social.linkedin}>LinkedIn</a>}
             {site.email && <a href={`mailto:${site.email}`}>Contact</a>}
           </nav>
         </div>

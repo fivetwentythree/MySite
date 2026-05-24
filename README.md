@@ -83,9 +83,9 @@ Local builds can run without `SITE_URL`; they fall back to `http://localhost:432
 Optional public contact/profile values can be set the same way:
 
 ```sh
-SITE_EMAIL=you@your-domain.com
-SITE_GITHUB=https://github.com/your-profile
-SITE_LINKEDIN=https://www.linkedin.com/in/your-profile
+SITE_EMAIL=
+SITE_GITHUB=https://github.com/fivetwentythree
+SITE_LINKEDIN=https://www.linkedin.com/in/lochanalperera/
 ```
 
 The GitHub Pages custom domain is configured in `public/CNAME`:
