@@ -94,7 +94,7 @@
   --thread-marker-center: calc(var(--thread-marker-size) / 2);
   --thread-line: var(--line);
   color: var(--ink);
-  font-family: var(--serif);
+  font-family: var(--writing-serif);
   font-size: 18px;
   line-height: 21.036px;
 }
