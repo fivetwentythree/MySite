@@ -29,8 +29,8 @@
   display: grid;
   place-items: center;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.22)),
-    linear-gradient(90deg, #d8d8d8, #f1f1f1 38%, #b9b9b9);
+    var(--profile-placeholder-overlay),
+    var(--profile-placeholder-surface);
   filter: grayscale(1);
 }
 
@@ -43,8 +43,8 @@
 
 .profile-copy {
   padding-top: 20px;
-  font-size: 17.728px;
-  line-height: 21.1885px;
+  font-size: 17.6px;
+  line-height: 21.036px;
 }
 
 .profile-copy p {
@@ -85,7 +85,7 @@
   }
 
   .profile-copy {
-    font-size: 17.08px;
+    font-size: 17.6px;
     line-height: 1.28;
   }
 }

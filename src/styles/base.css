@@ -7,9 +7,54 @@
   --line: #dddddd;
   --link: #1f2b95;
   --note: #1f2b95;
+  --code-bg: #f3f3f3;
+  --code-block-bg: #fafafa;
+  --profile-placeholder-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.22));
+  --profile-placeholder-surface: linear-gradient(90deg, #d8d8d8, #f1f1f1 38%, #b9b9b9);
+  --toggle-track: #f1f2f4;
+  --toggle-thumb: #ffffff;
+  --toggle-shadow: 0 2px 9px rgba(21, 21, 21, 0.18);
   --sans: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
   --serif: adobe-garamond-pro, Georgia, Cambria, "Times New Roman", Times, serif;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #07111f;
+  --ink: #e8eef7;
+  --muted: #bdcadc;
+  --soft: #98abc4;
+  --line: #3e6389;
+  --link: #a9d0ff;
+  --note: #a9d0ff;
+  --code-bg: #101d2f;
+  --code-block-bg: #0b1728;
+  --profile-placeholder-overlay: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.28));
+  --profile-placeholder-surface: linear-gradient(90deg, #15243a, #263a56 42%, #0f1b2d);
+  --toggle-track: #24415f;
+  --toggle-thumb: #e8eef7;
+  --toggle-shadow: 0 2px 9px rgba(0, 0, 0, 0.42);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #07111f;
+    --ink: #e8eef7;
+    --muted: #bdcadc;
+    --soft: #98abc4;
+    --line: #3e6389;
+    --link: #a9d0ff;
+    --note: #a9d0ff;
+    --code-bg: #101d2f;
+    --code-block-bg: #0b1728;
+    --profile-placeholder-overlay: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.28));
+    --profile-placeholder-surface: linear-gradient(90deg, #15243a, #263a56 42%, #0f1b2d);
+    --toggle-track: #24415f;
+    --toggle-thumb: #e8eef7;
+    --toggle-shadow: 0 2px 9px rgba(0, 0, 0, 0.42);
+  }
 }
 
 @font-face {
@@ -64,6 +109,16 @@ a:hover {
   opacity: 0.62;
 }
 
+:root[data-theme="dark"] a:hover {
+  opacity: 0.78;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) a:hover {
+    opacity: 0.78;
+  }
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -96,8 +151,8 @@ img {
   width: 100%;
   padding: 28px 58px 18px;
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: clamp(2.5rem, 5vw, 6rem);
+  grid-template-columns: auto 1fr auto;
+  gap: clamp(2rem, 4vw, 5rem);
   align-items: center;
   font-family: var(--sans);
 }
@@ -185,6 +240,63 @@ img {
   display: none;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.theme-toggle {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--toggle-track);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    opacity 180ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.theme-toggle::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--toggle-thumb);
+  box-shadow: var(--toggle-shadow);
+  transform: translateX(0);
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root[data-active-theme="dark"] .theme-toggle::before {
+  transform: translateX(18px);
+}
+
+.theme-toggle:hover {
+  opacity: 0.82;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 4px;
+}
+
 .site-main {
   flex: 1;
 }
@@ -240,9 +352,19 @@ img {
       clamp(21.4766px, 6vw, 42.9531px)
       clamp(21.7656px, 6.05vw, 43.3125px);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     gap: 24px;
+  }
+
+  .header-actions {
+    margin-left: auto;
+    align-self: center;
+    gap: 14px;
+  }
+
+  .theme-toggle {
+    margin-top: 0;
   }
 
   .primary-nav {
@@ -262,7 +384,7 @@ img {
     flex: 0 0 auto;
     width: 47px;
     height: 37px;
-    margin-top: 3.4297px;
+    margin-top: 0;
     padding: 0;
     border: 0;
     background: transparent;
@@ -469,7 +591,7 @@ img {
 
 @media (max-width: 520px) {
   .brand-name {
-    max-width: calc(100vw - 112px);
+    max-width: calc(100vw - 178px);
     overflow-wrap: normal;
     font-size: clamp(16px, 4.5vw, 20px);
     line-height: 1.35;
@@ -498,6 +620,10 @@ img {
     gap: 12px;
   }
 
+  .header-actions {
+    gap: 10px;
+  }
+
   .mobile-menu-inner {
     gap: clamp(24px, 4.6vh, 36px);
   }
@@ -511,7 +637,9 @@ img {
   .mobile-menu-button::before,
   .mobile-menu-button::after,
   .mobile-menu-panel,
-  .mobile-menu-group {
+  .mobile-menu-group,
+  .theme-toggle,
+  .theme-toggle::before {
     transition-duration: 1ms;
   }
 }

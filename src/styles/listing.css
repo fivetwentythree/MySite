@@ -35,7 +35,7 @@
 
 .writing-row h2 {
   margin: 32px 0 0;
-  color: rgb(31, 43, 149);
+  color: var(--link);
   font-size: 20.32px;
   line-height: 24.1402px;
   font-weight: 400;

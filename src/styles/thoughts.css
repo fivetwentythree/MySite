@@ -89,11 +89,14 @@
 }
 
 .thought-body {
-  --thread-line: #dddddd;
+  --thread-indent: 34px;
+  --thread-marker-size: 9px;
+  --thread-marker-center: calc(var(--thread-marker-size) / 2);
+  --thread-line: var(--line);
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 17.08px;
-  line-height: 20.414px;
+  font-size: 17.6px;
+  line-height: 21.036px;
 }
 
 .thought-body > :first-child {
@@ -106,14 +109,14 @@
   margin: 32px 0;
   color: var(--ink);
   font-weight: 400;
-  line-height: 20.414px;
+  line-height: 21.036px;
   letter-spacing: 0;
 }
 
 .thought-body h2,
 .thought-body h3,
 .thought-body h4 {
-  font-size: 17.08px;
+  font-size: 17.6px;
 }
 
 .thought-body p {
@@ -125,6 +128,7 @@
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
+  overflow-wrap: anywhere;
 }
 
 .thought-body ul,
@@ -137,7 +141,7 @@
 .thought-body li {
   position: relative;
   margin: 0;
-  padding: 0 0 24px 34px;
+  padding: 0 0 24px var(--thread-indent);
 }
 
 .thought-body li::before {
@@ -145,8 +149,8 @@
   position: absolute;
   left: 0;
   top: 0.35em;
-  width: 9px;
-  height: 9px;
+  width: var(--thread-marker-size);
+  height: var(--thread-marker-size);
   border: 1px solid var(--ink);
   border-radius: 999px;
   background: var(--bg);
@@ -156,7 +160,7 @@
 .thought-body li::after {
   content: "";
   position: absolute;
-  left: 4px;
+  left: var(--thread-marker-center);
   top: calc(0.35em + 13px);
   bottom: 0;
   border-left: 1px solid var(--thread-line);
@@ -181,9 +185,9 @@
 .thought-body li > ol::before {
   content: "";
   position: absolute;
-  left: -30px;
+  left: calc((var(--thread-indent) - var(--thread-marker-center)) * -1);
   top: -13px;
-  width: 20px;
+  width: calc(var(--thread-indent) - var(--thread-marker-center));
   height: 18px;
   border-left: 1px solid var(--thread-line);
   border-bottom: 1px solid var(--thread-line);
@@ -275,7 +279,10 @@
     font-size: 13px;
   }
 
-  .margin-toggle:checked + .sidenote,
+  .margin-toggle:checked + .sidenote {
+    display: block;
+  }
+
   .marginnote {
     display: block;
   }
@@ -288,44 +295,43 @@
 @media (max-width: 640px) {
   .thought-index,
   .thought-shell {
-    width: calc(100% - 60px);
+    width: calc(100% - 40px);
   }
 
   .thought-index {
-    padding-top: 104px;
+    padding: 32px 0 64px;
   }
 
   .thought-index-header {
-    padding-bottom: 54px;
+    padding-bottom: 52px;
+  }
+
+  .thought-index-header h1 {
+    font-size: 32px;
+    line-height: 1.15;
+  }
+
+  .thought-header {
+    padding-bottom: 48px;
+  }
+
+  .thought-body {
+    --thread-indent: 28px;
+    font-size: 17.6px;
+    line-height: 1.35;
+  }
+
+  .thought-body ul,
+  .thought-body ol {
+    margin: 26px 0;
   }
 
   .thought-body li {
-    padding-left: 28px;
     padding-bottom: 22px;
   }
 
   .thought-body li > ul,
   .thought-body li > ol {
-    margin-top: 22px;
-  }
-
-  .thought-body li::before {
-    left: 0;
-    width: 8px;
-    height: 8px;
-  }
-
-  .thought-body li::after {
-    left: 4px;
-    top: calc(0.35em + 12px);
-  }
-
-  .thought-body li > ul::before,
-  .thought-body li > ol::before {
-    left: -24px;
-    top: -12px;
-    width: 15px;
-    height: 16px;
-    border-bottom-left-radius: 9px;
+    margin-top: 18px;
   }
 }

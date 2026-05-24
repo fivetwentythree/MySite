@@ -51,8 +51,8 @@
 .article-body {
   margin-top: 96px;
   color: var(--ink);
-  font-size: 17.08px;
-  line-height: 20.414px;
+  font-size: 17.6px;
+  line-height: 21.036px;
 }
 
 .article-body > * {
@@ -65,7 +65,7 @@
 
 .article-body > p:first-child {
   font-family: var(--sans);
-  font-size: 17.08px;
+  font-size: 17.6px;
   line-height: 24px;
   font-weight: 600;
   letter-spacing: 0.8px;
@@ -94,7 +94,7 @@
 .article-body h4 {
   margin: 32px 0;
   font-weight: 400;
-  line-height: 20.414px;
+  line-height: 21.036px;
   letter-spacing: 0;
 }
 
@@ -106,7 +106,7 @@
 .article-body h2,
 .article-body h3,
 .article-body h4 {
-  font-size: 17.08px;
+  font-size: 17.6px;
 }
 
 .article-body blockquote {
@@ -124,14 +124,14 @@
 
 .article-body :not(pre) > code {
   padding: 0.08rem 0.22rem;
-  background: #f3f3f3;
+  background: var(--code-bg);
 }
 
 .article-body pre {
   overflow-x: auto;
   padding: 17.08px;
   border: 1px solid var(--line);
-  background: #fafafa !important;
+  background: var(--code-block-bg) !important;
   font-size: 14px;
   line-height: 1.5;
 }

@@ -63,7 +63,8 @@ const structuredData = schema || defaultSchema;
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#07111f" media="(prefers-color-scheme: dark)" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" type="application/rss+xml" title={`${site.fullName} writings`} href="/rss.xml" />
     <meta property="og:site_name" content={site.fullName} />
@@ -82,6 +83,29 @@ const structuredData = schema || defaultSchema;
     {publishedTime && <meta property="article:published_time" content={publishedTime} />}
     {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
     <title>{pageTitle}</title>
+    <script is:inline>
+      (() => {
+        const storageKey = "site-theme";
+        const root = document.documentElement;
+        const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        let storedTheme;
+
+        try {
+          storedTheme = window.localStorage.getItem(storageKey);
+        } catch {
+          storedTheme = null;
+        }
+
+        const themeChoice = storedTheme === "dark" || storedTheme === "light" ? storedTheme : null;
+        const activeTheme = themeChoice || (themeQuery.matches ? "dark" : "light");
+
+        if (themeChoice) {
+          root.dataset.theme = themeChoice;
+        }
+
+        root.dataset.activeTheme = activeTheme;
+      })();
+    </script>
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body>
@@ -125,16 +149,27 @@ const structuredData = schema || defaultSchema;
           }
         </nav>
 
-        <button
-          class="mobile-menu-button"
-          type="button"
-          aria-label="Open Menu"
-          aria-controls="mobile-menu"
-          aria-expanded="false"
-          data-mobile-menu-button
-        >
-          <span aria-hidden="true"></span>
-        </button>
+        <div class="header-actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            role="switch"
+            aria-label="Switch to dark theme"
+            aria-checked="false"
+            data-theme-toggle
+          ></button>
+
+          <button
+            class="mobile-menu-button"
+            type="button"
+            aria-label="Open Menu"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            data-mobile-menu-button
+          >
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
       </header>
 
       <nav class="mobile-menu-panel" id="mobile-menu" aria-label="Mobile navigation" hidden>
@@ -179,9 +214,82 @@ const structuredData = schema || defaultSchema;
       </footer>
     </div>
     <script is:inline>
+      const root = document.documentElement;
+      const themeToggle = document.querySelector("[data-theme-toggle]");
+      const themeStorageKey = "site-theme";
+      const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      const themeColors = {
+        light: "#ffffff",
+        dark: "#07111f"
+      };
+
       const menuButton = document.querySelector("[data-mobile-menu-button]");
       const mobileMenu = document.querySelector("#mobile-menu");
       let closeTimer;
+
+      function getStoredTheme() {
+        try {
+          const storedTheme = window.localStorage.getItem(themeStorageKey);
+          return storedTheme === "dark" || storedTheme === "light" ? storedTheme : null;
+        } catch {
+          return null;
+        }
+      }
+
+      function storeTheme(theme) {
+        try {
+          window.localStorage.setItem(themeStorageKey, theme);
+        } catch {
+          return;
+        }
+      }
+
+      function resolveTheme(themeChoice = getStoredTheme()) {
+        return themeChoice || (themeQuery.matches ? "dark" : "light");
+      }
+
+      function updateThemeColor(activeTheme) {
+        document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+          meta.setAttribute("content", themeColors[activeTheme]);
+        });
+      }
+
+      function applyTheme(themeChoice = getStoredTheme()) {
+        const activeTheme = resolveTheme(themeChoice);
+
+        if (themeChoice) {
+          root.dataset.theme = themeChoice;
+        } else {
+          delete root.dataset.theme;
+        }
+
+        root.dataset.activeTheme = activeTheme;
+        updateThemeColor(activeTheme);
+
+        if (!themeToggle) return;
+
+        const isDark = activeTheme === "dark";
+        themeToggle.setAttribute("aria-checked", String(isDark));
+        themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+      }
+
+      themeToggle?.addEventListener("click", () => {
+        const nextTheme = resolveTheme() === "dark" ? "light" : "dark";
+        storeTheme(nextTheme);
+        applyTheme(nextTheme);
+      });
+
+      const syncSystemTheme = () => {
+        if (!getStoredTheme()) applyTheme(null);
+      };
+
+      if (themeQuery.addEventListener) {
+        themeQuery.addEventListener("change", syncSystemTheme);
+      } else {
+        themeQuery.addListener(syncSystemTheme);
+      }
+
+      applyTheme();
 
       function setMobileMenu(open) {
         if (!menuButton || !mobileMenu) return;
