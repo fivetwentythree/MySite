@@ -26,10 +26,8 @@
 .profile-image img {
   display: block;
   width: 100%;
-  aspect-ratio: 1258 / 1974;
+  aspect-ratio: 986 / 1357;
   height: auto;
-  object-fit: cover;
-  object-position: center top;
 }
 
 .profile-image-placeholder {
