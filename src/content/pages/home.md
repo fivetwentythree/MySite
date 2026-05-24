@@ -2,7 +2,7 @@
 title: "Lochana Perera"
 description: "Notes on analytical work, systems, technology, institutions, and the work of building useful things."
 heading: "Lochana Perera"
-hero: "analytical chemist, entrepreneur, and writer focused on systems, technology, institutions, and the work of building useful things."
+hero: "entrepreneur,analytical chemist and writer focused on systems, technology, institutions, and the work of building useful things."
 ---
 
 Lochana Perera is an Australian analytical chemist and entrepreneur with experience in analytical chemistry, food safety testing, quality control, and regulatory compliance.
