@@ -43,6 +43,7 @@
 
 .profile-copy {
   padding-top: 20px;
+  font-family: var(--writing-serif);
   font-size: 18px;
   line-height: 21.036px;
 }
