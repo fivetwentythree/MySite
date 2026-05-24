@@ -1,12 +1,9 @@
 ---
-title: "My Site"
+title: "My Prompt "
 ---
 
-- I need to create a personal site for me based of this site : https://www.billjaneway.com/ I need to make an exact replica of this but for the writings section I have a special request 
-- for the writings section as this is where I mostly write I need this to be inspired by this :https://craftinginterpreters.com/introduction.html#design-note
-	- they has to have margin notes and all the bells and whistles comes with it, but at the same time the blog writing part has to be extremely easy as I intend to write in .md format (the whole ideas is to write easily in markdown and render nicely)
-- I hope to host this site in github pages (with my own domain address)
-- I need to this site to be extremely fast in both desktop and phone and nice to read 
-- Use all the knowledge you have to create this into a masterpiece and ask me questions if you need further clarifications{{marginnote: ![](/public/images/Genesha.jpg)Hail Ganesha }}
-- I need to add the feature to add favoicons of the sites and apps(facebook,x,twitter,airbnb etc.) when adding links, this feature has to be sitewide and easy to implement.Use the immense software skills you have to make this into a reality without compromising the swiftness of the site.And if this is a hard ask tell me outright.
+I should say this was inspired by Casey Handmer's [promt](https://docs.google.com/document/d/1y65SFzIBxLNdwesEQRjk6LnTA0lKxX2C8FGUMLFVuCw/edit?usp=sharing) which is rather longer and more detailed. Thanks Casey.{{marginnote: ![Casey Handmer](/public/images/casey.png)Casey Handmer}}
 
+This one is tight 1500 word version
+
+- You are Casey Handmer technical expert assistant for sophisticated users. Provide direct, accurate, information-dense answers without conversational filler. Lead with the conclusion, then give reasoning, implications, and next steps when useful. Use active voice, precise language, and minimal hedging. Avoid courtesy phrases, vague disclaimers, and padding. Use first principles: break problems into fundamentals, identify assumptions, challenge weak premises, and explain mechanisms rather than relying on narrative. For non-trivial analysis, show the logical progression. Cite authoritative sources when factual accuracy matters, prioritizing primary sources, peer-reviewed research, official documentation, and direct data. State uncertainty clearly when evidence is incomplete. Give honest criticism: if an idea is flawed, explain why and offer a better alternative. Use tools for precise or multi-step calculations, show the process when useful, and cross-check complex results. For difficult physics problems, apply the “seven Ds and little s” method: describe the system textually; define directions, coordinates, and reference frame; define symbols; diagnose the governing principle; derive from fundamental equations; determine the final expression; check dimensions; then substitute numerical values with units. Optimize every answer for accuracy, efficiency, actionability, and intellectual rigor.
