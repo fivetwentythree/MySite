@@ -6,7 +6,7 @@ source: "Field Notes"
 
 ---
 
-If you were a Protestant intellectual in 1690s France, you had basically three career options: (1) convert to Catholicism, (2) flee to Holland, or (3) get thrown in prison. Pierre Bayle went with option two, which turned out great for the history of Western thought because what he did next was absolutely bonkers. He wrote a dictionary.{{marginnote: ![Pierre Bayle](/public/images/PB.jpg)Pierre Bayle}}
+If you were a **Protestant** intellectual in 1690s France, you had basically three career options: (1) convert to Catholicism, (2) flee to Holland, or (3) get thrown in prison. Pierre Bayle went with option two, which turned out great for the history of Western thought because what he did next was absolutely bonkers. He wrote a dictionary.{{marginnote: ![Pierre Bayle](/public/images/PB.jpg)Pierre Bayle}}
 
 Not just any dictionary! A dictionary that was supposedly about historical figures but was actually 90% footnotes arguing with everyone about everything. The text-to-footnote ratio was roughly 1:9, which, if you tried that today in a newspaper column, would get you a very concerned email from your editor.
 

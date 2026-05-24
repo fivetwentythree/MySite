@@ -15,7 +15,7 @@
   --toggle-thumb: #ffffff;
   --toggle-shadow: 0 2px 9px rgba(21, 21, 21, 0.18);
   --sans: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
-  --serif: adobe-garamond-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+  --serif: "TNYAdobeCaslonPro", "Adobe Caslon Pro", adobe-garamond-pro, Georgia, Cambria, "Times New Roman", Times, serif;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 
@@ -55,6 +55,31 @@
     --toggle-thumb: #e8eef7;
     --toggle-shadow: 0 2px 9px rgba(0, 0, 0, 0.42);
   }
+}
+
+@font-face {
+  font-family: "TNYAdobeCaslonPro";
+  src:
+    url("/fonts/AdobeCaslonPro-Regular.woff2") format("woff2"),
+    local("TNYAdobeCaslonPro"),
+    local("TNYAdobeCaslonPro-Regular"),
+    local("TNY Adobe Caslon Pro"),
+    local("Adobe Caslon Pro");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TNYAdobeCaslonPro";
+  src:
+    local("TNYAdobeCaslonPro-Italic"),
+    local("TNYAdobeCaslonPro-It"),
+    local("TNY Adobe Caslon Pro Italic"),
+    local("Adobe Caslon Pro Italic");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
