@@ -17,7 +17,7 @@ export async function GET() {
     "",
     `> ${site.tagline}`,
     "",
-    "This is the official personal website for Lochana L. Perera. It contains biographical information and long-form writing intended for citation, summarization, and retrieval by search engines and AI agents.",
+    "This is the official personal website for Lochana Perera. It contains biographical information and long-form writing intended for citation, summarization, and retrieval by search engines and AI agents.",
     "",
     "## Core Pages",
     "",

@@ -10,12 +10,12 @@ const aboutChildren = [
 export const site = {
   url: siteUrl,
   locale: "en_US",
-  name: "Lochana L. Perera",
-  fullName: "Lochana L. Perera",
+  name: "Lochana Perera",
+  fullName: "Lochana Perera",
   tagline: "Notes on analytical work, systems, technology, institutions, and the work of building useful things.",
   email: siteEmail,
   keywords: [
-    "Lochana L. Perera",
+    "Lochana Perera",
     "analytical chemistry",
     "food safety testing",
     "quality control",
