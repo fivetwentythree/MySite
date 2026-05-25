@@ -112,7 +112,7 @@ const structuredData = schema || defaultSchema;
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
     <div class="site-shell">
-      <header class="site-header" aria-label="Site header">
+      <header class="site-header" aria-label="Site header" data-site-header>
         <a class="brand" href="/" aria-label={`${site.fullName} home`}>
           <span class="brand-name">{site.fullName}</span>
           <span class="brand-kicker">Personal Site</span>
@@ -151,15 +151,6 @@ const structuredData = schema || defaultSchema;
         </nav>
 
         <div class="header-actions">
-          <button
-            class="theme-toggle"
-            type="button"
-            role="switch"
-            aria-label="Switch to dark theme"
-            aria-checked="false"
-            data-theme-toggle
-          ></button>
-
           <button
             class="mobile-menu-button"
             type="button"
@@ -215,10 +206,24 @@ const structuredData = schema || defaultSchema;
           </nav>
         </div>
       </footer>
+
+      <button
+        class="theme-toggle floating-theme-toggle"
+        type="button"
+        role="switch"
+        aria-label="Switch to dark theme"
+        aria-checked="false"
+        aria-hidden="true"
+        tabindex="-1"
+        data-theme-toggle
+        data-floating-theme-toggle
+      ></button>
     </div>
     <script is:inline>
       const root = document.documentElement;
-      const themeToggle = document.querySelector("[data-theme-toggle]");
+      const themeToggles = document.querySelectorAll("[data-theme-toggle]");
+      const siteHeader = document.querySelector("[data-site-header]");
+      const floatingThemeToggle = document.querySelector("[data-floating-theme-toggle]");
       const themeStorageKey = "site-theme";
       const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
       const themeColors = {
@@ -232,6 +237,18 @@ const structuredData = schema || defaultSchema;
       const menuNavigationDelay = 320;
       const menuFallbackCloseDelay = 620;
       let closeTimer;
+      let floatingThemeVisible = false;
+
+      function syncFloatingThemeAccess() {
+        if (!floatingThemeToggle) return;
+        const canUseFloatingTheme = floatingThemeVisible && !document.body.classList.contains("mobile-menu-open");
+        floatingThemeToggle.setAttribute("aria-hidden", String(!canUseFloatingTheme));
+        if (canUseFloatingTheme) {
+          floatingThemeToggle.removeAttribute("tabindex");
+        } else {
+          floatingThemeToggle.setAttribute("tabindex", "-1");
+        }
+      }
 
       function getStoredTheme() {
         try {
@@ -272,18 +289,39 @@ const structuredData = schema || defaultSchema;
         root.dataset.activeTheme = activeTheme;
         updateThemeColor(activeTheme);
 
-        if (!themeToggle) return;
-
         const isDark = activeTheme === "dark";
-        themeToggle.setAttribute("aria-checked", String(isDark));
-        themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+        themeToggles.forEach((themeToggle) => {
+          themeToggle.setAttribute("aria-checked", String(isDark));
+          themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+        });
       }
 
-      themeToggle?.addEventListener("click", () => {
-        const nextTheme = resolveTheme() === "dark" ? "light" : "dark";
-        storeTheme(nextTheme);
-        applyTheme(nextTheme);
+      themeToggles.forEach((themeToggle) => {
+        themeToggle.addEventListener("click", () => {
+          const nextTheme = resolveTheme() === "dark" ? "light" : "dark";
+          storeTheme(nextTheme);
+          applyTheme(nextTheme);
+        });
       });
+
+      function setFloatingThemeVisible(visible) {
+        if (!floatingThemeToggle || floatingThemeVisible === visible) return;
+        floatingThemeVisible = visible;
+        floatingThemeToggle.classList.toggle("is-visible", visible);
+        syncFloatingThemeAccess();
+      }
+
+      function shouldShowFloatingTheme() {
+        if (siteHeader) {
+          return siteHeader.getBoundingClientRect().bottom <= 0;
+        }
+
+        return window.scrollY > 160;
+      }
+
+      function updateFloatingThemeVisibility() {
+        setFloatingThemeVisible(shouldShowFloatingTheme());
+      }
 
       const syncSystemTheme = () => {
         if (!getStoredTheme()) applyTheme(null);
@@ -297,6 +335,24 @@ const structuredData = schema || defaultSchema;
 
       applyTheme();
 
+      if (floatingThemeToggle) {
+        window.addEventListener("scroll", updateFloatingThemeVisibility, { passive: true });
+        window.addEventListener("resize", updateFloatingThemeVisibility);
+        window.setInterval(updateFloatingThemeVisibility, 250);
+        updateFloatingThemeVisibility();
+      }
+
+      if (floatingThemeToggle && siteHeader && "IntersectionObserver" in window) {
+        const siteHeaderObserver = new IntersectionObserver(
+          ([entry]) => {
+            setFloatingThemeVisible(!entry.isIntersecting);
+          },
+          { threshold: 0 }
+        );
+
+        siteHeaderObserver.observe(siteHeader);
+      }
+
       function setMobileMenu(open) {
         if (!menuButton || !mobileMenu) return;
         const isOpen = menuButton.getAttribute("aria-expanded") === "true";
@@ -306,6 +362,7 @@ const structuredData = schema || defaultSchema;
         menuButton.setAttribute("aria-expanded", String(open));
         menuButton.setAttribute("aria-label", open ? "Close Menu" : "Open Menu");
         document.body.classList.toggle("mobile-menu-open", open);
+        syncFloatingThemeAccess();
 
         if (open) {
           mobileMenu.hidden = false;

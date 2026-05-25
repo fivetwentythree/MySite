@@ -97,6 +97,7 @@
   font-family: var(--writing-serif);
   font-size: 18px;
   line-height: 21.036px;
+  overflow-wrap: break-word;
 }
 
 .thought-body > :first-child {
@@ -121,6 +122,13 @@
 
 .thought-body p {
   margin: 22px 0;
+}
+
+.thought-body img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 28px auto;
 }
 
 .thought-body a {
@@ -216,6 +224,30 @@
   border-left: 1px solid var(--ink);
   color: var(--muted);
   font-style: italic;
+}
+
+.thought-body table {
+  display: block;
+  max-width: 100%;
+  margin: 32px 0;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.35;
+  -webkit-overflow-scrolling: touch;
+}
+
+.thought-body th,
+.thought-body td {
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.thought-body th {
+  font-weight: 600;
 }
 
 .thought-body code {
@@ -347,7 +379,7 @@
 @media (max-width: 640px) {
   .thought-index,
   .thought-shell {
-    width: calc(100% - 40px);
+    width: calc(100% - 32px);
   }
 
   .thought-index {
@@ -364,18 +396,41 @@
   }
 
   .thought-header {
-    padding-bottom: 48px;
+    gap: 14px;
+    padding-bottom: 38px;
+  }
+
+  .thought-shell {
+    padding-top: 34px;
+    padding-bottom: 72px;
+  }
+
+  .thought-header h1 {
+    font-size: clamp(25px, 7vw, 29px);
+    line-height: 1.15;
   }
 
   .thought-body {
     --thread-indent: 28px;
-    font-size: 18px;
-    line-height: 1.35;
+    font-size: 17px;
+    line-height: 1.48;
+  }
+
+  .thought-body h2,
+  .thought-body h3,
+  .thought-body h4 {
+    margin: 34px 0 18px;
+    font-size: 21px;
+    line-height: 1.18;
+  }
+
+  .thought-body p {
+    margin: 18px 0;
   }
 
   .thought-body ul,
   .thought-body ol {
-    margin: 26px 0;
+    margin: 24px 0;
   }
 
   .thought-body li {
@@ -385,5 +440,29 @@
   .thought-body li > ul,
   .thought-body li > ol {
     margin-top: 18px;
+  }
+
+  .thought-body blockquote {
+    margin: 24px 0;
+    padding-left: 14px;
+  }
+
+  .thought-body blockquote blockquote {
+    margin: 16px 0;
+    padding-left: 12px;
+  }
+
+  .thought-body table {
+    margin: 24px 0;
+    font-size: 12px;
+  }
+
+  .thought-body th,
+  .thought-body td {
+    padding: 6px 8px;
+  }
+
+  .thought-body img {
+    margin: 22px auto;
   }
 }
