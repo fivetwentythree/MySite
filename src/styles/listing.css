@@ -20,30 +20,19 @@
   letter-spacing: 0;
 }
 
-.writing-list {
+.writing-groups {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 490px));
-  column-gap: 122px;
-  row-gap: 56px;
+  gap: 72px;
   padding-bottom: 64px;
 }
 
-.writing-row {
-  display: block;
-  padding: 0;
+.writing-category {
+  display: grid;
+  gap: 32px;
 }
 
-.writing-row h2 {
-  margin: 32px 0 0;
-  color: var(--link);
-  font-size: 20.32px;
-  line-height: 24.1402px;
-  font-weight: 400;
-  letter-spacing: 0;
-}
-
-.writing-source {
-  display: block;
+.writing-category-title {
+  margin: 0;
   color: var(--ink);
   font-family: var(--sans);
   font-size: 17.08px;
@@ -51,6 +40,27 @@
   font-weight: 600;
   letter-spacing: 0.8px;
   text-transform: uppercase;
+}
+
+.writing-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 490px));
+  column-gap: 122px;
+  row-gap: 56px;
+}
+
+.writing-row {
+  display: block;
+  padding: 0;
+}
+
+.writing-row h3 {
+  margin: 0;
+  color: var(--link);
+  font-size: 20.32px;
+  line-height: 24.1402px;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 @media (max-width: 980px) {

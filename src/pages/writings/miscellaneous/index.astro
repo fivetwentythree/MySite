@@ -1,11 +1,14 @@
 ---
 import { getCollection } from "astro:content";
+import { groupWritingsBySource } from "../../../lib/group-writings";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import "../../../styles/listing.css";
 
 const writings = (await getCollection("writings"))
   .filter((entry) => !entry.data.draft && entry.id.startsWith("miscellaneous/"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const writingGroups = groupWritingsBySource(writings);
 ---
 
 <BaseLayout
@@ -18,13 +21,21 @@ const writings = (await getCollection("writings"))
       <h1>Miscellaneous Writing</h1>
     </header>
 
-    <section class="writing-list" aria-label="Miscellaneous writing list">
+    <section class="writing-groups" aria-label="Miscellaneous writing list">
       {
-        writings.map((entry) => (
-          <a class="writing-row" href={`/writings/${entry.id}/`}>
-            <span class="writing-source">{entry.data.source}</span>
-            <h2>{entry.data.title}</h2>
-          </a>
+        writingGroups.map((group) => (
+          <section class="writing-category" aria-labelledby={`source-${group.sourceId}`}>
+            <h2 class="writing-category-title" id={`source-${group.sourceId}`}>
+              {group.source}
+            </h2>
+            <div class="writing-list">
+              {group.entries.map((entry) => (
+                <a class="writing-row" href={`/writings/${entry.id}/`}>
+                  <h3>{entry.data.title}</h3>
+                </a>
+              ))}
+            </div>
+          </section>
         ))
       }
     </section>
