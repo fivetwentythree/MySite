@@ -15,6 +15,8 @@ npm run build
 
 ## Writing
 
+The homepage biography and links live in `src/content/pages/home.md`. Keep them in one paragraph; `⁂` separates each item. The portrait lives in `/images/homepage-portrait.webp` (converted to WebP by the build), and its layout and typography are in `src/styles/home.css`. Homepage changes pushed to `main` deploy automatically to https://lochana.au/ through the existing GitHub Pages workflow.
+
 Create a new Markdown file in `src/content/writings`.
 
 ```md

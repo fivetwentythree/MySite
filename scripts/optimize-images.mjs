@@ -1,18 +1,19 @@
 import { readFile, readdir, rename, stat, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
-const imageRoot = new URL("../public/images/", import.meta.url);
-const projectRoot = new URL("../", import.meta.url);
+const imageRoot = fileURLToPath(new URL("../public/images/", import.meta.url));
+const projectRoot = fileURLToPath(new URL("../", import.meta.url));
 const maxWidth = Number.parseInt(process.env.IMAGE_MAX_WIDTH || "1600", 10);
 const maxHeight = Number.parseInt(process.env.IMAGE_MAX_HEIGHT || "1600", 10);
 const webpQuality = Number.parseInt(process.env.IMAGE_WEBP_QUALITY || "78", 10);
 const extensions = new Set([".jpg", ".jpeg", ".png", ".webp"]);
 const convertibleExtensions = new Set([".jpg", ".jpeg", ".png"]);
 const referenceRoots = [
-  new URL("../src/", import.meta.url).pathname,
-  new URL("../README.md", import.meta.url).pathname,
-  new URL("../public/images/README.md", import.meta.url).pathname
+  fileURLToPath(new URL("../src/", import.meta.url)),
+  fileURLToPath(new URL("../README.md", import.meta.url)),
+  fileURLToPath(new URL("../public/images/README.md", import.meta.url))
 ];
 const textExtensions = new Set([".astro", ".css", ".html", ".js", ".json", ".md", ".mdx", ".mjs", ".ts", ".tsx", ".txt"]);
 
@@ -70,7 +71,7 @@ async function collectTextFiles(target) {
 }
 
 function imageUrl(filePath) {
-  return `/images/${path.relative(imageRoot.pathname, filePath).split(path.sep).join("/")}`;
+  return `/images/${path.relative(imageRoot, filePath).split(path.sep).join("/")}`;
 }
 
 async function optimizeImage(filePath) {
@@ -152,13 +153,13 @@ async function updateImageReferences(conversions) {
     if (content === original) continue;
 
     await writeFile(file, content);
-    changedFiles.push(path.relative(projectRoot.pathname, file));
+    changedFiles.push(path.relative(projectRoot, file));
   }
 
   return changedFiles;
 }
 
-const images = await collectImages(imageRoot.pathname);
+const images = await collectImages(imageRoot);
 
 if (images.length === 0) {
   console.log("No images found in public/images.");
@@ -170,8 +171,8 @@ const conversions = [];
 
 for (const image of images) {
   const result = await optimizeImage(image);
-  const relativePath = path.relative(imageRoot.pathname, result.filePath);
-  const outputRelativePath = path.relative(imageRoot.pathname, result.outputPath);
+  const relativePath = path.relative(imageRoot, result.filePath);
+  const outputRelativePath = path.relative(imageRoot, result.outputPath);
 
   if (!result.changed) {
     console.log(`${relativePath}: already optimized (${formatBytes(result.before)})`);

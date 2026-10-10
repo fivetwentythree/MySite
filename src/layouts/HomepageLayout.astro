@@ -1,0 +1,50 @@
+---
+import "../styles/home.css";
+import { site } from "../site.config";
+
+const { title = site.fullName, description = site.tagline } = Astro.props;
+const canonicalUrl = new URL("/", site.url).toString();
+const imageUrl = new URL("/images/homepage-portrait.webp", site.url).toString();
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.fullName,
+  url: canonicalUrl,
+  image: imageUrl,
+  sameAs: Object.values(site.social).filter(Boolean)
+};
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content={site.fullName} />
+    <meta name="theme-color" content="#babab7" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="alternate" type="application/rss+xml" title={`${site.fullName} writings`} href="/rss.xml" />
+    <meta property="og:site_name" content={site.fullName} />
+    <meta property="og:locale" content="en_AU" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={`Portrait of ${site.fullName}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

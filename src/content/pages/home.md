@@ -1,14 +1,13 @@
 ---
 title: "Lochana Perera"
-description: "Notes on analytical work, systems, technology, institutions, and the work of building useful things."
+description: "Analytical chemist, entrepreneur, writer, and UWA master’s student in biomedical science, specialising in biochemistry and molecular biology."
 heading: "Lochana Perera"
-hero: "entrepreneur,analytical chemist and writer focused on systems, technology, institutions, and the work of building useful things."
 ---
 
-Lochana Perera is an Australian analytical chemist and entrepreneur with experience in analytical chemistry, food safety testing, quality control, and regulatory compliance.
-
-He has worked across food product analysis,pharmaceutical feasibility research, and fertiliser development. Previously, he served as a Food Technologist at the Industrial Technology Institute in Colombo and as a Research Scientist at the Sri Lanka Institute of Nanotechnology, contributing to method development, quality testing, multidisciplinary research, and intern supervision.
-
-He is also the Founder and Managing Director of Domestica Hobart, a short-term accommodation management business in Tasmania, where he has built operational systems and quality assurance processes since 2018.
-
-He holds a Postgraduate Diploma in Industrial Analytical Chemistry and a Bachelor of Science in Chemistry and Food Science & Technology from the University of Sri Jayawardenepura.
+I’m Lochana Perera, an [analytical chemist](/about/), entrepreneur, and [writer](/writings/)<span class="separator" aria-hidden="true"> ⁂ </span><span class="visually-hidden">. </span>
+Founder of Domestica Hobart<span class="separator" aria-hidden="true"> ⁂ </span><span class="visually-hidden">. </span>
+Master’s student in biomedical science (biochemistry & molecular biology) at [UWA](https://www.uwa.edu.au/)<span class="separator" aria-hidden="true"> ⁂ </span><span class="visually-hidden">. </span>
+Previously at the Industrial Technology Institute and Sri Lanka Institute of Nanotechnology<span class="separator" aria-hidden="true"> ⁂ </span><span class="visually-hidden">. </span>
+Alumnus of the [University of Sri Jayewardenepura](https://www.sjp.ac.lk/)<span class="separator" aria-hidden="true"> ⁂ </span><span class="visually-hidden">. </span>
+[writings](/writings/), [thoughts](/thoughts/), [about](/about/)<span class="separator" aria-hidden="true"> ⁂ </span><span class="visually-hidden">. </span>
+[GitHub](https://github.com/fivetwentythree) & [LinkedIn](https://www.linkedin.com/in/lochanalperera/)
