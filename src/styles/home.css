@@ -1,8 +1,8 @@
 :root {
   color-scheme: light;
-  --paper: #babab7;
-  --ink: #191918;
-  --link: #fafaf7;
+  --paper: #bcc3b7;
+  --ink: #20251f;
+  --link: #354d3a;
 }
 
 * { box-sizing: border-box; }
@@ -49,7 +49,27 @@ a {
 
 a:hover { color: var(--ink); text-decoration: underline; }
 a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
-.separator { white-space: nowrap; }
+.separator {
+  position: relative;
+  display: inline-block;
+  width: .72em;
+  height: .72em;
+  margin-inline: .08em;
+  vertical-align: -.08em;
+}
+.separator::before,
+.separator::after,
+.separator .diamond {
+  content: "";
+  position: absolute;
+  width: .21em;
+  height: .21em;
+  background: currentColor;
+  transform: rotate(45deg);
+}
+.separator .diamond { top: .07em; left: .255em; }
+.separator::before { top: .40em; left: .07em; }
+.separator::after { top: .40em; right: .07em; }
 ::selection { color: var(--paper); background: var(--ink); }
 
 .visually-hidden {
